@@ -19,6 +19,7 @@ struct RestaurantListView: View {
     var body: some View {
         List {
             ForEach(restaurantNames.indices, id:\.self) { index in
+                /*
                 HStack(alignment: .top, spacing: 20) {
                     Image(restaurantImages[index])
                         .resizable()
@@ -35,6 +36,27 @@ struct RestaurantListView: View {
                             .font(.system(.subheadline, design: .rounded))
                             .foregroundColor(.gray)
                     }
+                    */
+                // FoodPin Exercise 2
+                VStack(alignment: .leading, spacing: 10) {
+                    Image(restaurantImages[index])
+                        .resizable()
+                        .scaledToFill()
+                        .frame(height: 200)
+                        .cornerRadius(20)
+                    VStack(alignment: .leading) {
+                        Text(restaurantNames[index])
+                            .font(.system(.title2, design: .rounded))
+                        
+                        Text(restaurantTypes[index])
+                            .font(.system(.body, design: .rounded))
+                        
+                        Text(restaurantLocations[index])
+                            .font(.system(.subheadline, design: .rounded))
+                            .foregroundColor(.gray)
+                    }
+                    .padding(.horizontal)
+                    .padding(.bottom)
                 }
             }
             
