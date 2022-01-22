@@ -44,12 +44,12 @@ struct ContentView: View {
             }
         }
         .padding(.top, 30)
-        .background(Color.black)
-//        .background{
-//            Image("background")
-//                .resizable()
-//                .ignoresSafeArea()
-//        }
+        .frame(maxWidth: .infinity)
+        .background{
+            Image("background")
+                .resizable()
+                .ignoresSafeArea()
+        }
     }
 }
 
