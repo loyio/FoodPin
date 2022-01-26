@@ -10,6 +10,8 @@ import SwiftUI
 struct RestaurantDetailView: View {
     @Environment(\.dismiss) var dismiss
     
+    @State private var showReview = false
+    
     var restaurant: Restaurant
     
     var body: some View {
@@ -69,10 +71,44 @@ struct RestaurantDetailView: View {
                     }) {
                         Text("\(Image(systemName: "chevron.left"))")
                     }
+                    .opacity(showReview ? 0 : 1)
                 }
             }
+            NavigationLink(
+                destination:
+                    MapView(location: restaurant.location)
+                    .edgesIgnoringSafeArea(.all)
+            ) {
+                MapView(location: restaurant.location)
+                    .frame(minWidth: 0, maxWidth: .infinity)
+                    .frame(height: 200)
+                    .cornerRadius(20)
+                .padding()
+            }
+            
+            Button(action: {
+                self.showReview.toggle()
+            }) {
+                Text("Rate it")
+                    .font(.system(.headline, design: .rounded))
+                    .frame(minWidth: 0, maxWidth: .infinity)
+            }
+            .tint(Color("NavigationBarTitle"))
+            .buttonStyle(.borderedProminent)
+            .buttonBorderShape(.roundedRectangle(radius: 25))
+            .controlSize(.large)
+            .padding(.horizontal)
+            .padding(.bottom, 28)
         }
         .ignoresSafeArea()
+        .overlay(
+            self.showReview ?
+                ZStack {
+                    ReviewView(isDisplayed: $showReview, restaurant: restaurant)
+                        .navigationBarHidden(true)
+                }
+            : nil
+        )
     }
 }
 
