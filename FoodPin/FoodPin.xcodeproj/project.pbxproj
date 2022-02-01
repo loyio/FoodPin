@@ -16,6 +16,9 @@
 		4E23480A279CE81A0082BAF3 /* Restaurant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E234809279CE81A0082BAF3 /* Restaurant.swift */; };
 		4E23480E279CF2610082BAF3 /* ActivityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E23480D279CF2610082BAF3 /* ActivityView.swift */; };
 		4E27A92427A69791004BE590 /* NewRestaurantView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E27A92327A69791004BE590 /* NewRestaurantView.swift */; };
+		4E46029B27A7BE94000EC328 /* RestaurantFormViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E46029A27A7BE94000EC328 /* RestaurantFormViewModel.swift */; };
+		4E71AF0827A7949B00986610 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E71AF0727A7949B00986610 /* Persistence.swift */; };
+		4E71AF0B27A79BE000986610 /* FoodPin.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4E71AF0927A79BE000986610 /* FoodPin.xcdatamodeld */; };
 		4E71E7B627A0E39300E735BA /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E71E7B527A0E39300E735BA /* MapView.swift */; };
 		4E7CA02B27A0F740007E2E4D /* ReviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E7CA02A27A0F740007E2E4D /* ReviewView.swift */; };
 		4EB3D009279F9A2D003EFEB0 /* Nunito-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4EB3D007279F9A2D003EFEB0 /* Nunito-Regular.ttf */; };
@@ -35,6 +38,9 @@
 		4E23480D279CF2610082BAF3 /* ActivityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityView.swift; sourceTree = "<group>"; };
 		4E26FB01279F9B1A00AA0473 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		4E27A92327A69791004BE590 /* NewRestaurantView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewRestaurantView.swift; sourceTree = "<group>"; };
+		4E46029A27A7BE94000EC328 /* RestaurantFormViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantFormViewModel.swift; sourceTree = "<group>"; };
+		4E71AF0727A7949B00986610 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
+		4E71AF0A27A79BE000986610 /* FoodPin.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = FoodPin.xcdatamodel; sourceTree = "<group>"; };
 		4E71E7B527A0E39300E735BA /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 		4E7CA02A27A0F740007E2E4D /* ReviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewView.swift; sourceTree = "<group>"; };
 		4EB3D007279F9A2D003EFEB0 /* Nunito-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Nunito-Regular.ttf"; sourceTree = "<group>"; };
@@ -72,6 +78,7 @@
 		4E15D18D279BA178006E240F /* FoodPin */ = {
 			isa = PBXGroup;
 			children = (
+				4E46029927A7BE67000EC328 /* ViewModel */,
 				4E16192227A6B18800918902 /* Util */,
 				4ECA1F3E27A033BF007AEA7B /* Extensions */,
 				4E26FB01279F9B1A00AA0473 /* Info.plist */,
@@ -81,6 +88,7 @@
 				4E15D18E279BA178006E240F /* FoodPinApp.swift */,
 				4E15D192279BA179006E240F /* Assets.xcassets */,
 				4E15D194279BA179006E240F /* Preview Content */,
+				4E71AF0927A79BE000986610 /* FoodPin.xcdatamodeld */,
 			);
 			path = FoodPin;
 			sourceTree = "<group>";
@@ -118,8 +126,17 @@
 			isa = PBXGroup;
 			children = (
 				4E234809279CE81A0082BAF3 /* Restaurant.swift */,
+				4E71AF0727A7949B00986610 /* Persistence.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		4E46029927A7BE67000EC328 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				4E46029A27A7BE94000EC328 /* RestaurantFormViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		4EB3D004279F998F003EFEB0 /* Resources */ = {
@@ -219,6 +236,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4E46029B27A7BE94000EC328 /* RestaurantFormViewModel.swift in Sources */,
+				4E71AF0827A7949B00986610 /* Persistence.swift in Sources */,
 				4E7CA02B27A0F740007E2E4D /* ReviewView.swift in Sources */,
 				4E71E7B627A0E39300E735BA /* MapView.swift in Sources */,
 				4E15D191279BA178006E240F /* RestaurantListView.swift in Sources */,
@@ -229,6 +248,7 @@
 				4E16192427A6B1B700918902 /* ImagePicker.swift in Sources */,
 				4E15D18F279BA178006E240F /* FoodPinApp.swift in Sources */,
 				4E23480A279CE81A0082BAF3 /* Restaurant.swift in Sources */,
+				4E71AF0B27A79BE000986610 /* FoodPin.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -433,6 +453,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		4E71AF0927A79BE000986610 /* FoodPin.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				4E71AF0A27A79BE000986610 /* FoodPin.xcdatamodel */,
+			);
+			currentVersion = 4E71AF0A27A79BE000986610 /* FoodPin.xcdatamodel */;
+			path = FoodPin.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 4E15D183279BA178006E240F /* Project object */;
 }

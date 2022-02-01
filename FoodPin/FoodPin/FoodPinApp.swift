@@ -9,6 +9,8 @@ import SwiftUI
 
 @main
 struct FoodPinApp: App {
+    let persistenceController = PersistenceController.shared
+    
     init() {
         let navBarAppearance = UINavigationBarAppearance()
         navBarAppearance.largeTitleTextAttributes = [.foregroundColor: UIColor(named: "NavigationBarTitle") ?? UIColor.systemRed, .font: UIFont(name: "ArialRoundedMTBold", size: 35)!]
@@ -25,6 +27,7 @@ struct FoodPinApp: App {
     var body: some Scene {
         WindowGroup {
             RestaurantListView()
+                .environment(\.managedObjectContext, persistenceController.container.viewContext)
         }
     }
 }
