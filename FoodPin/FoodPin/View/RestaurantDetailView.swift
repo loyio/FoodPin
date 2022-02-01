@@ -26,13 +26,6 @@ struct RestaurantDetailView: View {
                     .frame(height: 445)
                     .overlay {
                         VStack {
-                            Image(systemName: restaurant.isFavorite ? "heart.fill" : "heart")
-                                .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity, alignment: .topTrailing)
-                                .padding()
-                                .font(.system(size: 30))
-                                .foregroundColor(restaurant.isFavorite ? .yellow : .white)
-                                .padding(.top, 40)
-                            
                             HStack(alignment: .bottom) {
                                 VStack(alignment: .leading, spacing: 5) {
                                     Text(restaurant.name)
@@ -56,10 +49,9 @@ struct RestaurantDetailView: View {
                                 }
                             }
                             .animation(.spring(response: 0.2, dampingFraction: 0.3, blendDuration: 0.3), value: restaurant.rating)
-                            
                         }
                     }
-                Text(restaurant.description)
+                Text(restaurant.summary)
                     .padding()
                 HStack(alignment: .top){
                     VStack(alignment: .leading){
@@ -75,7 +67,31 @@ struct RestaurantDetailView: View {
                     .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
                 }
                 .padding(.horizontal)
+                NavigationLink(
+                    destination:
+                        MapView(location: restaurant.location)
+                        .edgesIgnoringSafeArea(.all)
+                ) {
+                    MapView(location: restaurant.location)
+                        .frame(minWidth: 0, maxWidth: .infinity)
+                        .frame(height: 200)
+                        .cornerRadius(20)
+                    .padding()
+                }
             
+                Button(action: {
+                    self.showReview.toggle()
+                }) {
+                    Text("Rate it")
+                        .font(.system(.headline, design: .rounded))
+                        .frame(minWidth: 0, maxWidth: .infinity)
+                }
+                .tint(Color("NavigationBarTitle"))
+                .buttonStyle(.borderedProminent)
+                .buttonBorderShape(.roundedRectangle(radius: 25))
+                .controlSize(.large)
+                .padding(.horizontal)
+                .padding(.bottom, 28)
             }
             .navigationBarBackButtonHidden(true)
             .toolbar {
@@ -87,32 +103,18 @@ struct RestaurantDetailView: View {
                     }
                     .opacity(showReview ? 0 : 1)
                 }
+                
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Button(action: {
+                        restaurant.isFavorite.toggle()
+                    }){
+                        Image(systemName: restaurant.isFavorite ? "heart.fill" : "heart")
+                            .font(.system(size: 25))
+                            .foregroundColor(restaurant.isFavorite ? .yellow : .white)
+                    }
+                    .opacity(showReview ? 0 : 1)
+                }
             }
-            NavigationLink(
-                destination:
-                    MapView(location: restaurant.location)
-                    .edgesIgnoringSafeArea(.all)
-            ) {
-                MapView(location: restaurant.location)
-                    .frame(minWidth: 0, maxWidth: .infinity)
-                    .frame(height: 200)
-                    .cornerRadius(20)
-                .padding()
-            }
-            
-            Button(action: {
-                self.showReview.toggle()
-            }) {
-                Text("Rate it")
-                    .font(.system(.headline, design: .rounded))
-                    .frame(minWidth: 0, maxWidth: .infinity)
-            }
-            .tint(Color("NavigationBarTitle"))
-            .buttonStyle(.borderedProminent)
-            .buttonBorderShape(.roundedRectangle(radius: 25))
-            .controlSize(.large)
-            .padding(.horizontal)
-            .padding(.bottom, 28)
         }
         .ignoresSafeArea()
         .overlay(
