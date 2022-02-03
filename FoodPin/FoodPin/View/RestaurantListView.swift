@@ -18,6 +18,8 @@ struct RestaurantListView: View {
     
     @State private var showNewRestaurant = false
     
+    @State private var searchText = ""
+    
     var body: some View {
         NavigationView {
             List {
@@ -55,6 +57,12 @@ struct RestaurantListView: View {
         .accentColor(.primary)
         .sheet(isPresented: $showNewRestaurant){
             NewRestaurantView()
+        }
+        .searchable(text: $searchText, placement: .navigationBarDrawer(displayMode: .always), prompt: "Search restaurants...")
+        .onChange(of: searchText) { searchText in
+            let predicate = searchText.isEmpty ? NSPredicate(value: true) : NSPredicate(format: "name CONTAINS[c] %@ OR location CONTAINS[c] %@", searchText, searchText)
+            
+            restaurants.nsPredicate = predicate
         }
     }
     
