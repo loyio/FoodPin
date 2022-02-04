@@ -9,6 +9,8 @@ import SwiftUI
 
 struct RestaurantListView: View {
     
+    @AppStorage("hasViewedWalkthrough") var hasViewedWalkthrough: Bool = false
+    
     @FetchRequest(
         entity: Restaurant.entity(),
         sortDescriptors: [])
@@ -19,6 +21,8 @@ struct RestaurantListView: View {
     @State private var showNewRestaurant = false
     
     @State private var searchText = ""
+    
+    @State private var showWalkthrough = false
     
     var body: some View {
         NavigationView {
@@ -58,11 +62,17 @@ struct RestaurantListView: View {
         .sheet(isPresented: $showNewRestaurant){
             NewRestaurantView()
         }
+        .sheet(isPresented: $showWalkthrough) {
+            TutorialView()
+        }
         .searchable(text: $searchText, placement: .navigationBarDrawer(displayMode: .always), prompt: "Search restaurants...")
         .onChange(of: searchText) { searchText in
             let predicate = searchText.isEmpty ? NSPredicate(value: true) : NSPredicate(format: "name CONTAINS[c] %@ OR location CONTAINS[c] %@", searchText, searchText)
             
             restaurants.nsPredicate = predicate
+        }
+        .onAppear() {
+            showWalkthrough = hasViewedWalkthrough ? false : true
         }
     }
     
@@ -103,7 +113,7 @@ struct BasicTextImageRow: View {
             }
             VStack(alignment: .leading) {
                 Text(restaurant.name)
-                    .font(.system(.body, design: .rounded))
+                    .font(.system(.title2, design: .rounded))
                 
                 Text(restaurant.type)
                     .font(.system(.body, design: .rounded))
@@ -149,7 +159,7 @@ struct BasicTextImageRow: View {
             
         }
         .alert(isPresented: $showError) {
-            Alert(title: Text("Not yet avaiable"),
+            Alert(title: Text("Not yet available"),
                   message: Text("Sorry, this feature is not available yet, Please retry later."),
                   primaryButton: .default(Text("OK")),
                   secondaryButton: .cancel())
