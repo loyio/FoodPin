@@ -17,6 +17,7 @@
 		4E23480E279CF2610082BAF3 /* ActivityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E23480D279CF2610082BAF3 /* ActivityView.swift */; };
 		4E27A92427A69791004BE590 /* NewRestaurantView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E27A92327A69791004BE590 /* NewRestaurantView.swift */; };
 		4E46029B27A7BE94000EC328 /* RestaurantFormViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E46029A27A7BE94000EC328 /* RestaurantFormViewModel.swift */; };
+		4E5F433727ACC1BA00471581 /* TutorialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E5F433627ACC1BA00471581 /* TutorialView.swift */; };
 		4E71AF0827A7949B00986610 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E71AF0727A7949B00986610 /* Persistence.swift */; };
 		4E71AF0B27A79BE000986610 /* FoodPin.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4E71AF0927A79BE000986610 /* FoodPin.xcdatamodeld */; };
 		4E71E7B627A0E39300E735BA /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E71E7B527A0E39300E735BA /* MapView.swift */; };
@@ -39,6 +40,7 @@
 		4E26FB01279F9B1A00AA0473 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		4E27A92327A69791004BE590 /* NewRestaurantView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewRestaurantView.swift; sourceTree = "<group>"; };
 		4E46029A27A7BE94000EC328 /* RestaurantFormViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantFormViewModel.swift; sourceTree = "<group>"; };
+		4E5F433627ACC1BA00471581 /* TutorialView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialView.swift; sourceTree = "<group>"; };
 		4E71AF0727A7949B00986610 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		4E71AF0A27A79BE000986610 /* FoodPin.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = FoodPin.xcdatamodel; sourceTree = "<group>"; };
 		4E71E7B527A0E39300E735BA /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
@@ -118,6 +120,7 @@
 				4E71E7B527A0E39300E735BA /* MapView.swift */,
 				4E7CA02A27A0F740007E2E4D /* ReviewView.swift */,
 				4E27A92327A69791004BE590 /* NewRestaurantView.swift */,
+				4E5F433627ACC1BA00471581 /* TutorialView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -236,6 +239,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4E5F433727ACC1BA00471581 /* TutorialView.swift in Sources */,
 				4E46029B27A7BE94000EC328 /* RestaurantFormViewModel.swift in Sources */,
 				4E71AF0827A7949B00986610 /* Persistence.swift in Sources */,
 				4E7CA02B27A0F740007E2E4D /* ReviewView.swift in Sources */,
