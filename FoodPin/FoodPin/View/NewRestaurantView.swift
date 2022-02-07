@@ -106,6 +106,8 @@ struct NewRestaurantView: View {
     
     private func save() {
         let restaurant = Restaurant(context: context)
+        let cloudStore = RestaurantCloudStore()
+        cloudStore.saveRecordToCloud(restaurant: restaurant)
         
         restaurant.name = restaurantFormViewModel.name
         restaurant.type = restaurantFormViewModel.type

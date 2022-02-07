@@ -26,6 +26,8 @@
 		4E96F28627AF7150004B43BC /* AboutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E96F28527AF7150004B43BC /* AboutView.swift */; };
 		4E96F28827AF76ED004B43BC /* WebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E96F28727AF76ED004B43BC /* WebView.swift */; };
 		4E96F28A27AF78EB004B43BC /* SafariView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E96F28927AF78EB004B43BC /* SafariView.swift */; };
+		4EA4E21427B0D5770005DECB /* RestaurantCloudStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EA4E21327B0D5770005DECB /* RestaurantCloudStore.swift */; };
+		4EA4E21627B0D5AB0005DECB /* DiscoverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EA4E21527B0D5AB0005DECB /* DiscoverView.swift */; };
 		4EB3D009279F9A2D003EFEB0 /* Nunito-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4EB3D007279F9A2D003EFEB0 /* Nunito-Regular.ttf */; };
 		4EB3D00A279F9A2D003EFEB0 /* Nunito-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4EB3D008279F9A2D003EFEB0 /* Nunito-Bold.ttf */; };
 		4ECA1F4027A033F4007AEA7B /* UIColor+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ECA1F3F27A033F4007AEA7B /* UIColor+Ext.swift */; };
@@ -53,6 +55,8 @@
 		4E96F28527AF7150004B43BC /* AboutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutView.swift; sourceTree = "<group>"; };
 		4E96F28727AF76ED004B43BC /* WebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebView.swift; sourceTree = "<group>"; };
 		4E96F28927AF78EB004B43BC /* SafariView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafariView.swift; sourceTree = "<group>"; };
+		4EA4E21327B0D5770005DECB /* RestaurantCloudStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestaurantCloudStore.swift; sourceTree = "<group>"; };
+		4EA4E21527B0D5AB0005DECB /* DiscoverView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiscoverView.swift; sourceTree = "<group>"; };
 		4EB3D007279F9A2D003EFEB0 /* Nunito-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Nunito-Regular.ttf"; sourceTree = "<group>"; };
 		4EB3D008279F9A2D003EFEB0 /* Nunito-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Nunito-Bold.ttf"; sourceTree = "<group>"; };
 		4ECA1F3F27A033F4007AEA7B /* UIColor+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Ext.swift"; sourceTree = "<group>"; };
@@ -122,6 +126,7 @@
 		4E23480B279CEE3D0082BAF3 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				4EA4E21527B0D5AB0005DECB /* DiscoverView.swift */,
 				4E15D190279BA178006E240F /* RestaurantListView.swift */,
 				4E23480D279CF2610082BAF3 /* ActivityView.swift */,
 				4E096D9D279F92AF00A61744 /* RestaurantDetailView.swift */,
@@ -140,6 +145,7 @@
 		4E23480C279CEE4B0082BAF3 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				4EA4E21327B0D5770005DECB /* RestaurantCloudStore.swift */,
 				4E234809279CE81A0082BAF3 /* Restaurant.swift */,
 				4E71AF0727A7949B00986610 /* Persistence.swift */,
 			);
@@ -258,7 +264,9 @@
 				4E7CA02B27A0F740007E2E4D /* ReviewView.swift in Sources */,
 				4E71E7B627A0E39300E735BA /* MapView.swift in Sources */,
 				4E15D191279BA178006E240F /* RestaurantListView.swift in Sources */,
+				4EA4E21627B0D5AB0005DECB /* DiscoverView.swift in Sources */,
 				4E096D9E279F92AF00A61744 /* RestaurantDetailView.swift in Sources */,
+				4EA4E21427B0D5770005DECB /* RestaurantCloudStore.swift in Sources */,
 				4E23480E279CF2610082BAF3 /* ActivityView.swift in Sources */,
 				4E27A92427A69791004BE590 /* NewRestaurantView.swift in Sources */,
 				4E96F28A27AF78EB004B43BC /* SafariView.swift in Sources */,
