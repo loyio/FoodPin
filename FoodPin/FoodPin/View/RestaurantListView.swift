@@ -65,7 +65,7 @@ struct RestaurantListView: View {
         .sheet(isPresented: $showWalkthrough) {
             TutorialView()
         }
-        .searchable(text: $searchText, placement: .navigationBarDrawer(displayMode: .always), prompt: "Search restaurants...")
+        .searchable(text: $searchText, placement: .navigationBarDrawer(displayMode: .always), prompt: String(localized: "Search restaurants..."))
         .onChange(of: searchText) { searchText in
             let predicate = searchText.isEmpty ? NSPredicate(value: true) : NSPredicate(format: "name CONTAINS[c] %@ OR location CONTAINS[c] %@", searchText, searchText)
             
@@ -74,6 +74,12 @@ struct RestaurantListView: View {
         .onAppear() {
             showWalkthrough = hasViewedWalkthrough ? false : true
         }
+        .onOpenURL(perform: { url in
+            switch url.path {
+            case "/NewRestaurant": showNewRestaurant = true
+            default: return
+            }
+        })
     }
     
     private func deleteRecord(indexSet: IndexSet) {
@@ -134,7 +140,7 @@ struct BasicTextImageRow: View {
                 self.showError.toggle()
             }){
                 HStack {
-                    Text("Reserve a table")
+                    Text(String(localized: "Reserve a table"))
                     Image(systemName: "phone")
                 }
             }
@@ -143,7 +149,7 @@ struct BasicTextImageRow: View {
                 self.restaurant.isFavorite.toggle()
             }){
                 HStack {
-                    Text(restaurant.isFavorite ? "Remove from favorites" : "Mark as favorite")
+                    Text(restaurant.isFavorite ? String(localized: "Remove from favorites") : String(localized: "Mark as favorite"))
                     Image(systemName: "heart")
                 }
             }
@@ -152,15 +158,15 @@ struct BasicTextImageRow: View {
                 self.showOptions.toggle()
             }){
                 HStack{
-                    Text("Share")
+                    Text(String(localized: "Share"))
                     Image(systemName: "square.and.arrow.up")
                 }
             }
             
         }
         .alert(isPresented: $showError) {
-            Alert(title: Text("Not yet available"),
-                  message: Text("Sorry, this feature is not available yet, Please retry later."),
+            Alert(title: Text(String(localized: "Not yet available")),
+                  message: Text(String(localized: "Sorry, this feature is not available yet, Please retry later.")),
                   primaryButton: .default(Text("OK")),
                   secondaryButton: .cancel())
         }

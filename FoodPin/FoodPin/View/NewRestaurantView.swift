@@ -51,10 +51,10 @@ struct NewRestaurantView: View {
                         .onTapGesture {
                             self.showPhotoOptions.toggle()
                         }
-                    FormTextField(label: "NAME", placeholder: "Fill in the restaurant name", value: $restaurantFormViewModel.name)
-                    FormTextField(label: "TYPE", placeholder: "Fill in the restaurant type", value: $restaurantFormViewModel.type)
-                    FormTextField(label: "ADDRESS", placeholder: "Fill in the restaurant address", value: $restaurantFormViewModel.location)
-                    FormTextField(label: "PHONE", placeholder: "Fill in the restaurant phone", value: $restaurantFormViewModel.phone)
+                    FormTextField(label: "NAME", placeholder: String(localized: "Fill in the restaurant name"), value: $restaurantFormViewModel.name)
+                    FormTextField(label: "TYPE", placeholder: String(localized: "Fill in the restaurant type"), value: $restaurantFormViewModel.type)
+                    FormTextField(label: "ADDRESS", placeholder: String(localized: "Fill in the restaurant address"), value: $restaurantFormViewModel.location)
+                    FormTextField(label: "PHONE", placeholder: String(localized: "Fill in the restaurant phone"), value: $restaurantFormViewModel.phone)
                     FormTextView(label: "DESCRIPTION", value: $restaurantFormViewModel.description, height: 100)
                 }
                 .padding()
@@ -83,13 +83,13 @@ struct NewRestaurantView: View {
             }
         }
         .actionSheet(isPresented: $showPhotoOptions) {
-            ActionSheet(title: Text("Choose your photo source"),
+            ActionSheet(title: Text(String(localized: "Choose your photo source")),
             message: nil,
             buttons: [
-                .default(Text("Camera")){
+                .default(Text(String(localized: "Camera"))){
                     self.photoSource = .camera
                 },
-                .default(Text("Photo Library")){
+                .default(Text(String(localized: "Photo Library"))){
                     self.photoSource = .photoLibrary
                 },
                 .cancel()
@@ -120,7 +120,7 @@ struct NewRestaurantView: View {
         do {
             try context.save()
         } catch {
-            print("Failed to save the record...")
+            print(String(localized: "Failed to save the record..."))
             print(error.localizedDescription)
         }
     }
@@ -185,7 +185,7 @@ struct NewRestaurantView_Previews: PreviewProvider {
     static var previews: some View {
         NewRestaurantView()
         
-        FormTextField(label: "NAME", placeholder: "Fill in the restaurant name", value: .constant(""))
+        FormTextField(label: "NAME", placeholder: String(localized: "Fill in the restaurant name"), value: .constant(""))
             .previewLayout(.fixed(width: 300, height: 200))
         
         FormTextView(label: "Description", value: .constant(""))

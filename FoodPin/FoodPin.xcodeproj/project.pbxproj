@@ -16,6 +16,8 @@
 		4E23480A279CE81A0082BAF3 /* Restaurant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E234809279CE81A0082BAF3 /* Restaurant.swift */; };
 		4E23480E279CF2610082BAF3 /* ActivityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E23480D279CF2610082BAF3 /* ActivityView.swift */; };
 		4E27A92427A69791004BE590 /* NewRestaurantView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E27A92327A69791004BE590 /* NewRestaurantView.swift */; };
+		4E40682A27B204CA005B7B0A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4E40682827B204CA005B7B0A /* InfoPlist.strings */; };
+		4E40682D27B204CA005B7B0A /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4E40682B27B204CA005B7B0A /* Localizable.strings */; };
 		4E46029B27A7BE94000EC328 /* RestaurantFormViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E46029A27A7BE94000EC328 /* RestaurantFormViewModel.swift */; };
 		4E5F433727ACC1BA00471581 /* TutorialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E5F433627ACC1BA00471581 /* TutorialView.swift */; };
 		4E71AF0827A7949B00986610 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E71AF0727A7949B00986610 /* Persistence.swift */; };
@@ -45,6 +47,10 @@
 		4E23480D279CF2610082BAF3 /* ActivityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityView.swift; sourceTree = "<group>"; };
 		4E26FB01279F9B1A00AA0473 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		4E27A92327A69791004BE590 /* NewRestaurantView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewRestaurantView.swift; sourceTree = "<group>"; };
+		4E40682927B204CA005B7B0A /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
+		4E40682C27B204CA005B7B0A /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		4E40682E27B34B56005B7B0A /* en-US */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "en-US"; path = "en-US.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
+		4E40682F27B34B56005B7B0A /* en-US */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "en-US"; path = "en-US.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		4E46029A27A7BE94000EC328 /* RestaurantFormViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantFormViewModel.swift; sourceTree = "<group>"; };
 		4E5F433627ACC1BA00471581 /* TutorialView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialView.swift; sourceTree = "<group>"; };
 		4E71AF0727A7949B00986610 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
@@ -96,6 +102,8 @@
 				4E16192227A6B18800918902 /* Util */,
 				4ECA1F3E27A033BF007AEA7B /* Extensions */,
 				4E26FB01279F9B1A00AA0473 /* Info.plist */,
+				4E40682B27B204CA005B7B0A /* Localizable.strings */,
+				4E40682827B204CA005B7B0A /* InfoPlist.strings */,
 				4EB3D004279F998F003EFEB0 /* Resources */,
 				4E23480C279CEE4B0082BAF3 /* Model */,
 				4E23480B279CEE3D0082BAF3 /* View */,
@@ -227,6 +235,8 @@
 			knownRegions = (
 				en,
 				Base,
+				"zh-Hans",
+				"en-US",
 			);
 			mainGroup = 4E15D182279BA178006E240F;
 			productRefGroup = 4E15D18C279BA178006E240F /* Products */;
@@ -244,9 +254,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				4EB3D009279F9A2D003EFEB0 /* Nunito-Regular.ttf in Resources */,
+				4E40682D27B204CA005B7B0A /* Localizable.strings in Resources */,
 				4E15D196279BA179006E240F /* Preview Assets.xcassets in Resources */,
 				4EB3D00A279F9A2D003EFEB0 /* Nunito-Bold.ttf in Resources */,
 				4E15D193279BA179006E240F /* Assets.xcassets in Resources */,
+				4E40682A27B204CA005B7B0A /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -281,6 +293,27 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		4E40682827B204CA005B7B0A /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4E40682927B204CA005B7B0A /* zh-Hans */,
+				4E40682E27B34B56005B7B0A /* en-US */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		4E40682B27B204CA005B7B0A /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4E40682C27B204CA005B7B0A /* zh-Hans */,
+				4E40682F27B34B56005B7B0A /* en-US */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		4E15D197279BA179006E240F /* Debug */ = {
@@ -411,9 +444,10 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = FoodPin/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "You need to grant the app access to your camera in order to take photos.";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "You need to grant the app access to your photo library so you can pick your favorite restaurant photo.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -441,9 +475,10 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = FoodPin/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "You need to grant the app access to your camera in order to take photos.";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "You need to grant the app access to your photo library so you can pick your favorite restaurant photo.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
