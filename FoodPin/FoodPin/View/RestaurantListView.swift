@@ -80,6 +80,9 @@ struct RestaurantListView: View {
             default: return
             }
         })
+        .task {
+            prepareNotification()
+        }
     }
     
     private func deleteRecord(indexSet: IndexSet) {
@@ -95,6 +98,48 @@ struct RestaurantListView: View {
                 print(error)
             }
         }
+    }
+    
+    private func prepareNotification() {
+        // Make sure the restaurant array is not empty
+        if restaurants.count <= 0 {
+            return
+        }
+        
+        // pick a restaurant randomly
+        let randomNum = Int.random(in: 0..<restaurants.count)
+        let suggestedRestaurant = restaurants[randomNum]
+        
+        // create notification
+        let content = UNMutableNotificationContent()
+        content.title = "Restaurant Recommendation"
+        content.subtitle = "Try new food today"
+        content.body = "I recommend you to check out \(suggestedRestaurant.name). The restaurant is one of your favorites. It is located at \(suggestedRestaurant.location). Would you like to give it a try?"
+        content.sound = UNNotificationSound.default
+        content.userInfo = ["phone": suggestedRestaurant.phone]
+        // add image
+        let tempDirURL = URL(fileURLWithPath: NSTemporaryDirectory(), isDirectory: true)
+        let tempFileURL = tempDirURL.appendingPathComponent("suggested-restaurant.jpg")
+        
+        if let image = UIImage(data: suggestedRestaurant.image as Data) {
+            try? image.jpegData(compressionQuality: 1.0)?.write(to: tempFileURL)
+            if let restaurantImage = try? UNNotificationAttachment(identifier: "restaurantImage", url: tempFileURL, options: nil){
+                content.attachments = [restaurantImage]
+            }
+        }
+        
+        // Make Action
+        let categoryIdentifier = "foodpin.restaurantaction"
+        let makeReservationAction = UNNotificationAction(identifier: "foodpin.makeReservation", title: "Reserve a table", options: [.foreground])
+        let cancelAction = UNNotificationAction(identifier: "foodpin.cancel", title: "Later", options: [])
+        let category = UNNotificationCategory(identifier: categoryIdentifier, actions: [makeReservationAction, cancelAction], intentIdentifiers: [], options: [])
+        UNUserNotificationCenter.current().setNotificationCategories([category])
+        content.categoryIdentifier = categoryIdentifier
+        
+        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 10, repeats: false)
+        let request = UNNotificationRequest(identifier: "foodpin.restaurantSuggestion", content: content, trigger: trigger)
+        
+        UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
     }
 }
 
@@ -167,13 +212,14 @@ struct BasicTextImageRow: View {
         .alert(isPresented: $showError) {
             Alert(title: Text(String(localized: "Not yet available")),
                   message: Text(String(localized: "Sorry, this feature is not available yet, Please retry later.")),
-                  primaryButton: .default(Text("OK")),
+                  primaryButton: .default(Text(String(localized: "OK"))),
                   secondaryButton: .cancel())
         }
         .sheet(isPresented: $showOptions){
             let defaultText = "Just checking in at \(restaurant.name)"
             
-            if let imageData = restaurant.image, let imageToShare = UIImage(data: imageData){
+	    if let imageData = restaurant.image,
+	       let imageToShare = UIImage(data: imageData){
                 ActivityView(activityItems: [defaultText, imageToShare])
             }else {
                 ActivityView(activityItems: [defaultText])
