@@ -8,20 +8,12 @@
 import SwiftUI
 
 struct NewRestaurantView: View {
-    
+
+    @Environment(\.dismiss) var dismiss
+    @Environment(\.managedObjectContext) var context   
     @ObservedObject private var restaurantFormViewModel: RestaurantFormViewModel
     
-    @Environment(\.managedObjectContext) var context
-    
-    init() {
-        let viewModel = RestaurantFormViewModel()
-        viewModel.image = UIImage(named: "newphoto")!
-        restaurantFormViewModel = viewModel
-    }
-    
     @State private var showPhotoOptions = false
-    
-    @Environment(\.dismiss) var dismiss
     
     enum PhotoSource: Identifiable {
         case photoLibrary
@@ -34,6 +26,11 @@ struct NewRestaurantView: View {
     
     @State private var photoSource: PhotoSource?
     
+    init() {
+        let viewModel = RestaurantFormViewModel()
+        viewModel.image = UIImage(named: "newphoto")!
+        restaurantFormViewModel = viewModel
+    }
     var body: some View {
         NavigationView {
             
@@ -51,16 +48,15 @@ struct NewRestaurantView: View {
                         .onTapGesture {
                             self.showPhotoOptions.toggle()
                         }
-                    FormTextField(label: "NAME", placeholder: String(localized: "Fill in the restaurant name"), value: $restaurantFormViewModel.name)
-                    FormTextField(label: "TYPE", placeholder: String(localized: "Fill in the restaurant type"), value: $restaurantFormViewModel.type)
-                    FormTextField(label: "ADDRESS", placeholder: String(localized: "Fill in the restaurant address"), value: $restaurantFormViewModel.location)
-                    FormTextField(label: "PHONE", placeholder: String(localized: "Fill in the restaurant phone"), value: $restaurantFormViewModel.phone)
-                    FormTextView(label: "DESCRIPTION", value: $restaurantFormViewModel.description, height: 100)
+                    FormTextField(label: String(localized: "NAME", comment: "NAME"), placeholder: String(localized: "Fill in the restaurant name", comment: "Fill in the restaurant name"), value: $restaurantFormViewModel.name)
+                    FormTextField(label: String(localized: "TYPE", comment: "TYPE"), placeholder: String(localized: "Fill in the restaurant type", comment: "Fill in the restaurant type"), value: $restaurantFormViewModel.type)
+                    FormTextField(label: String(localized: "ADDRESS", comment: "ADDRESS"), placeholder: String(localized: "Fill in the restaurant address", comment: "Fill in the restaurant address"), value: $restaurantFormViewModel.location)
+                    FormTextField(label: String(localized: "PHONE", comment: "PHONE"), placeholder: String(localized: "Fill in the restaurant phone", comment: "Fill in the restaurant phone"), value: $restaurantFormViewModel.phone)
+                    FormTextView(label: String(localized: "DESCRIPTION", comment: "DESCRIPTION"), value: $restaurantFormViewModel.description, height: 100)
                 }
                 .padding()
             }
-            
-            .navigationTitle("New Restaurant")
+            .navigationTitle(String(localized: "New Restaurant", comment: "New Restaurant"))
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {
                     Button(action: {
@@ -82,14 +78,15 @@ struct NewRestaurantView: View {
                 }
             }
         }
+        .accentColor(.primary)
         .actionSheet(isPresented: $showPhotoOptions) {
-            ActionSheet(title: Text(String(localized: "Choose your photo source")),
+            ActionSheet(title: Text(String(localized: "Choose your photo source", comment: "Choose your photo source")),
             message: nil,
             buttons: [
-                .default(Text(String(localized: "Camera"))){
+                .default(Text(String(localized: "Camera", comment: "Camera"))){
                     self.photoSource = .camera
                 },
-                .default(Text(String(localized: "Photo Library"))){
+                .default(Text(String(localized: "Photo Library", comment: "Camera"))){
                     self.photoSource = .photoLibrary
                 },
                 .cancel()
@@ -106,8 +103,7 @@ struct NewRestaurantView: View {
     
     private func save() {
         let restaurant = Restaurant(context: context)
-        let cloudStore = RestaurantCloudStore()
-        cloudStore.saveRecordToCloud(restaurant: restaurant)
+        
         
         restaurant.name = restaurantFormViewModel.name
         restaurant.type = restaurantFormViewModel.type
@@ -123,6 +119,8 @@ struct NewRestaurantView: View {
             print(String(localized: "Failed to save the record..."))
             print(error.localizedDescription)
         }
+        let cloudStore = RestaurantCloudStore()
+        cloudStore.saveRecordToCloud(restaurant: restaurant)
     }
 }
 
